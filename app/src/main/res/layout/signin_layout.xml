@@ -18,7 +18,7 @@
 
 
         android:fontFamily="@font/roboto_black"
-        android:text="DK88"
+        android:text="API DEMO APP"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="50dp"
