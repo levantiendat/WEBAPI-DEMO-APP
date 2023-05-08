@@ -63,10 +63,8 @@ public class SignInActivity extends AppCompatActivity {
                             admin.setPhoneNumber(data.get("phoneNumber").toString());
                             admin.setRoleCode(userRole);
 
-                            Intent intent = new Intent(SignInActivity.this, AdminProfileActivity.class);
-                            intent.putExtra("token",token);
-                            intent.putExtra("admin",admin);
-                            startActivity(intent);
+
+
 
                         }
                         else{
@@ -78,22 +76,11 @@ public class SignInActivity extends AppCompatActivity {
                             student.setStatus(Math.toIntExact(Math.round(Double.parseDouble(data.get("status").toString()))));
                             student.setStudentID(data.get("studentID").toString());
 
-                            if(student.getStatus()==STATUS_NEW_USER){
-                                Intent intent = new Intent(SignInActivity.this, StudentIdentity.class);
-                                intent.putExtra("token",token);
-                                intent.putExtra("student",student);
-                                startActivity(intent);
-                            }
-                            else if(student.getStatus()==STATUS_BAN_USER){
-                                Intent intent=new Intent(SignInActivity.this,StudentBanStatus.class);
-                                startActivity(intent);
-                            }
-                            else{
-                                Intent intent = new Intent(SignInActivity.this, ProfileActivity.class);
-                                intent.putExtra("token",token);
-                                intent.putExtra("student",student);
-                                startActivity(intent);
-                            }
+                            Intent intent = new Intent(SignInActivity.this, ProfileActivity.class);
+                            intent.putExtra("token",token);
+                            intent.putExtra("student",student);
+                            startActivity(intent);
+
 
                         }
                         Toast.makeText(SignInActivity.this, "Login success as " + data.get("name"), Toast.LENGTH_LONG).show();
